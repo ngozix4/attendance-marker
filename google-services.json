@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "139402022385",
+    "project_id": "attendance-marker-5a84e",
+    "storage_bucket": "attendance-marker-5a84e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139402022385:android:4ea7b1ea08f260fd8f0850",
+        "android_client_info": {
+          "package_name": "profngozi.attendance_marker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCj7BMlMK4cHs5CwIh8zqxFxZ071Xwvf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
