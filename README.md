@@ -41,44 +41,12 @@ npm install
 npx expo start
 ```
 
-## 🔐 Firebase Setup
 
-1. Create a Firebase project at https://console.firebase.google.com
-2. Enable Firestore
-3. Create a file `src/services/firebase.ts`:
-```ts
-import { initializeApp } from 'firebase/app';
-
-const firebaseConfig = {
-  apiKey: 'YOUR_API_KEY',
-  authDomain: 'YOUR_AUTH_DOMAIN',
-  projectId: 'YOUR_PROJECT_ID',
-  storageBucket: 'YOUR_STORAGE_BUCKET',
-  messagingSenderId: 'YOUR_SENDER_ID',
-  appId: 'YOUR_APP_ID',
-};
-
-const app = initializeApp(firebaseConfig);
-export default app;
-```
 
 ## 🧪 Running the App
 
 - **Android/iOS**: Use Expo Go or `expo run`
 - **Web**: `npx expo start --web`
-
-## 🌐 Deployment
-
-### Web (Static Hosting)
-```bash
-npx expo export:web
-firebase deploy --only hosting
-```
-
-### Firebase Functions
-```bash
-firebase deploy --only functions
-```
 
 ## 🔮 Future Features
 
@@ -86,5 +54,5 @@ firebase deploy --only functions
 - Offline attendance sync
 - SMS/email reminders for absentees
 
-## 📜 License
+
 
