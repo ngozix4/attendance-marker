@@ -1,50 +1,90 @@
-# Welcome to your Expo app 👋
+# 📚 Smart Attendance Marker System
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A cross-platform attendance tracking app built with **Expo (React Native)** and **Firebase**, enabling teachers to generate QR codes and students to mark attendance — only if connected to the same local Wi-Fi network.
 
-## Get started
+## 🚀 Features
 
-1. Install dependencies
+- Teacher QR Code generation
+- Student QR Code scanning
+- Local Wi-Fi IP address matching for validation
+- Attendance storage in Firebase Firestore
+- Daily attendance summaries (Firebase functions)
+- Multi-platform: Android, iOS, and Web (via Expo)
 
-   ```bash
-   npm install
-   ```
+## 📁 Project Structure
 
-2. Start the app
+```
+src/
+├── components/         # QR Generator & Scanner
+├── navigation/         # App Navigation Setup
+├── screens/            # Role-based interfaces (Login, Teacher, Student)
+├── services/           # Firebase setup and utilities
+├── App.tsx             # App root
+├── index.tsx           # Web entry point
+```
+Other folders include `.expo`, `android`, `app`, `assets`, and `node_modules`.
 
-   ```bash
-    npx expo start
-   ```
+## 🧰 Tech Stack
 
-In the output, you'll find options to open the app in a
+- **React Native** (Expo)
+- **Firebase** (Firestore + Functions)
+- **expo-camera** for QR scanning
+- **expo-network** for IP verification
+- **react-native-qrcode-svg** for QR code rendering
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## 🛠 Installation
 
 ```bash
-npm run reset-project
+git clone https://github.com/yourusername/attendance-system.git
+cd attendance-system
+npm install
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🔐 Firebase Setup
 
-## Learn more
+1. Create a Firebase project at https://console.firebase.google.com
+2. Enable Firestore
+3. Create a file `src/services/firebase.ts`:
+```ts
+import { initializeApp } from 'firebase/app';
 
-To learn more about developing your project with Expo, look at the following resources:
+const firebaseConfig = {
+  apiKey: 'YOUR_API_KEY',
+  authDomain: 'YOUR_AUTH_DOMAIN',
+  projectId: 'YOUR_PROJECT_ID',
+  storageBucket: 'YOUR_STORAGE_BUCKET',
+  messagingSenderId: 'YOUR_SENDER_ID',
+  appId: 'YOUR_APP_ID',
+};
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+const app = initializeApp(firebaseConfig);
+export default app;
+```
 
-## Join the community
+## 🧪 Running the App
 
-Join our community of developers creating universal apps.
+- **Android/iOS**: Use Expo Go or `expo run`
+- **Web**: `npx expo start --web`
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 🌐 Deployment
+
+### Web (Static Hosting)
+```bash
+npx expo export:web
+firebase deploy --only hosting
+```
+
+### Firebase Functions
+```bash
+firebase deploy --only functions
+```
+
+## 🔮 Future Features
+
+- Admin dashboard for visual analytics
+- Offline attendance sync
+- SMS/email reminders for absentees
+
+## 📜 License
+
