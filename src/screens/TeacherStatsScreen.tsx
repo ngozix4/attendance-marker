@@ -44,16 +44,16 @@ const TeacherStatsScreen = () => {
 
   if (loading) {
     return (
-      <View style={tw`flex-1 justify-center items-center`}>
-        <ActivityIndicator size="large" color="#000" />
-        <Text style={tw`mt-2 text-gray-500`}>Loading sessions...</Text>
+      <View style={tw`flex-1 justify-center items-center bg-[#F1F0E4]`}>
+        <ActivityIndicator size="large" color="#3E3F29" />
+        <Text style={tw`mt-2 text-[#7D8D86]`}>Loading sessions...</Text>
       </View>
     );
   }
 
   if (error) {
     return (
-      <View style={tw`flex-1 justify-center items-center px-4`}>
+      <View style={tw`flex-1 justify-center items-center px-4 bg-[#F1F0E4]`}>
         <Text style={tw`text-red-600 text-center`}>{error}</Text>
       </View>
     );
@@ -61,25 +61,25 @@ const TeacherStatsScreen = () => {
 
   if (sessions.length === 0) {
     return (
-      <View style={tw`flex-1 justify-center items-center`}>
-        <Text style={tw`text-gray-500`}>No sessions found yet.</Text>
+      <View style={tw`flex-1 justify-center items-center bg-[#F1F0E4]`}>
+        <Text style={tw`text-[#7D8D86]`}>No sessions found yet.</Text>
       </View>
     );
   }
 
   return (
-    <View style={tw`flex-1 bg-white p-4`}>
-      <Text style={tw`text-xl font-bold mb-4`}>Session Attendance Stats</Text>
+    <View style={tw`flex-1 bg-[#F1F0E4] p-4`}>
+      <Text style={tw`text-xl font-bold mb-6 text-[#3E3F29]`}>Session Attendance Stats</Text>
       <FlatList
         data={sessions}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={tw`mb-4 p-3 border border-gray-300 rounded`}>
-            <Text style={tw`text-lg font-semibold`}>Subject: {item.subject}</Text>
-            <Text style={tw`text-sm`}>Total Students: {item.totalAttendees}</Text>
-            <Text style={tw`text-xs text-gray-500 mt-1`}>Scan Times:</Text>
+          <View style={tw`mb-4 p-4 bg-white rounded-lg border border-[#BCA88D] shadow-sm`}>
+            <Text style={tw`text-lg font-semibold text-[#3E3F29]`}>Subject: {item.subject}</Text>
+            <Text style={tw`text-sm text-[#7D8D86] mt-1`}>Total Students: {item.totalAttendees}</Text>
+            <Text style={tw`text-xs text-[#7D8D86] mt-2`}>Scan Times:</Text>
             {item.timestamps.map((ts, idx) => (
-              <Text key={idx} style={tw`text-xs ml-2 text-gray-600`}>
+              <Text key={idx} style={tw`text-xs ml-2 text-[#7D8D86] mt-1`}>
                 {ts?.toDate().toLocaleString()}
               </Text>
             ))}

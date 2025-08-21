@@ -147,8 +147,8 @@ const StudentScreen = () => {
 
   if (loading) {
     return (
-      <View style={tw`flex-1 justify-center items-center`}>
-        <ActivityIndicator size="large" color="#000" />
+      <View style={tw`flex-1 justify-center items-center bg-[#F1F0E4]`}>
+        <ActivityIndicator size="large" color="#3E3F29" />
       </View>
     );
   }
@@ -160,29 +160,29 @@ const StudentScreen = () => {
   }
 
   return (
-    <View style={tw`flex-1 bg-white px-5 pt-12`}>
-      <Text style={tw`text-2xl font-bold mb-4 text-center`}>
+    <View style={tw`flex-1 bg-[#F1F0E4] px-5 pt-12`}>
+      <Text style={tw`text-2xl font-bold mb-6 text-center text-[#3E3F29]`}>
         🎓 Welcome, {name || 'Student'}
       </Text>
 
       <TouchableOpacity
-        style={tw`bg-blue-500 py-3 rounded-lg mb-6`}
+        style={tw`bg-[#3E3F29] py-4 rounded-lg mb-8 shadow-md`}
         onPress={() => setShowScanner(true)}
       >
-        <Text style={tw`text-white text-center font-semibold`}>Scan QR Code</Text>
+        <Text style={tw`text-white text-center font-semibold text-lg`}>Scan QR Code</Text>
       </TouchableOpacity>
 
-      <Text style={tw`text-lg font-semibold mb-2`}>📘 Attended Sessions</Text>
+      <Text style={tw`text-lg font-semibold mb-4 text-[#3E3F29]`}>📘 Attended Sessions</Text>
       {attendedSessions.length === 0 ? (
-        <Text style={tw`text-gray-500`}>No attendance marked yet.</Text>
+        <Text style={tw`text-[#7D8D86] text-center py-4`}>No attendance marked yet.</Text>
       ) : (
         <FlatList
           data={attendedSessions}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
-            <View style={tw`bg-gray-100 rounded-md p-3 mb-2`}>
-              <Text style={tw`font-medium`}>{item.subject}</Text>
-              <Text style={tw`text-gray-600 text-sm`}>
+            <View style={tw`bg-white rounded-lg p-4 mb-3 border border-[#BCA88D]`}>
+              <Text style={tw`font-medium text-[#3E3F29]`}>{item.subject}</Text>
+              <Text style={tw`text-[#7D8D86] text-sm mt-1`}>
                 {item.timestamp.toDate().toLocaleString()}
               </Text>
             </View>

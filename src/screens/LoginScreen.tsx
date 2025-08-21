@@ -41,34 +41,36 @@ export default function LoginScreen() {
   };
 
   return (
-    <View style={tw`flex-1 justify-center px-6 bg-white`}>
-      <Text style={tw`text-3xl font-bold mb-6 text-center`}>Login</Text>
+    <View style={tw`flex-1 justify-center px-6 bg-[#F1F0E4]`}>
+      <Text style={tw`text-3xl font-bold mb-8 text-center text-[#3E3F29]`}>Login</Text>
 
       <TextInput
-        style={tw`border border-gray-300 rounded p-3 mb-4`}
+        style={tw`border border-[#BCA88D] rounded-lg p-4 mb-5 bg-white text-[#3E3F29]`}
         placeholder="Email"
+        placeholderTextColor="#7D8D86"
         keyboardType="email-address"
         onChangeText={setEmail}
         value={email}
       />
 
       <TextInput
-        style={tw`border border-gray-300 rounded p-3 mb-4`}
+        style={tw`border border-[#BCA88D] rounded-lg p-4 mb-6 bg-white text-[#3E3F29]`}
         placeholder="Password"
+        placeholderTextColor="#7D8D86"
         secureTextEntry
         onChangeText={setPassword}
         value={password}
       />
 
       <TouchableOpacity
-        style={tw`bg-blue-600 rounded p-3 mb-4`}
+        style={tw`bg-[#3E3F29] rounded-lg p-4 mb-6 shadow-md`}
         onPress={handleLogin}
       >
-        <Text style={tw`text-white text-center font-bold`}>Login</Text>
+        <Text style={tw`text-white text-center font-bold text-lg`}>Login</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-        <Text style={tw`text-blue-600 text-center`}>Don't have an account? Sign up</Text>
+        <Text style={tw`text-[#3E3F29] text-center text-base`}>Don't have an account? <Text style={tw`font-bold`}>Sign up</Text></Text>
       </TouchableOpacity>
     </View>
   );

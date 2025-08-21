@@ -70,41 +70,43 @@ const StudentStatsScreen = () => {
 
   if (loading) {
     return (
-      <View style={tw`flex-1 justify-center items-center bg-white`}>
-        <ActivityIndicator size="large" color="#000" />
-        <Text style={tw`mt-4 text-gray-500`}>Loading your attendance...</Text>
+      <View style={tw`flex-1 justify-center items-center bg-[#F1F0E4]`}>
+        <ActivityIndicator size="large" color="#3E3F29" />
+        <Text style={tw`mt-4 text-[#7D8D86]`}>Loading your attendance...</Text>
       </View>
     );
   }
 
   if (error) {
     return (
-      <View style={tw`flex-1 justify-center items-center bg-white p-4`}>
+      <View style={tw`flex-1 justify-center items-center bg-[#F1F0E4] p-4`}>
         <Text style={tw`text-red-500 text-center`}>{error}</Text>
       </View>
     );
   }
 
   return (
-    <View style={tw`flex-1 bg-white p-4`}>
-      <Text style={tw`text-xl font-bold mb-2`}>Your Attendance</Text>
-      <Text style={tw`text-sm text-gray-500 mb-4`}>Logged in as: {studentEmail}</Text>
+    <View style={tw`flex-1 bg-[#F1F0E4] p-4`}>
+      <Text style={tw`text-xl font-bold mb-2 text-[#3E3F29]`}>Your Attendance</Text>
+      <Text style={tw`text-sm text-[#7D8D86] mb-6`}>Logged in as: {studentEmail}</Text>
 
       {groupedAttendance.length === 0 ? (
-        <Text style={tw`text-gray-500 text-center mt-8`}>No attendance records found.</Text>
+        <Text style={tw`text-[#7D8D86] text-center mt-8`}>No attendance records found.</Text>
       ) : (
         <SectionList
           sections={groupedAttendance}
           keyExtractor={(item) => item.id}
           renderSectionHeader={({ section: { title } }) => (
-            <Text style={tw`text-lg font-bold mt-4 mb-2`}>{title}</Text>
+            <View style={tw`bg-[#BCA88D] rounded-lg p-2 mb-2`}>
+              <Text style={tw`text-lg font-bold text-white`}>{title}</Text>
+            </View>
           )}
           renderItem={({ item }) => (
-            <View style={tw`border-b border-gray-200 py-2`}>
-              <Text style={tw`text-base`}>Subject: {item.subject}</Text>
-              <Text style={tw`text-sm text-gray-600`}>Time: {item.time}</Text>
-              <Text style={tw`text-sm ${item.attended ? 'text-green-600' : 'text-red-600'}`}>
-                Attended: {item.attended ? 'Yes' : 'No'}
+            <View style={tw`bg-white rounded-lg p-3 mb-3 border border-[#BCA88D]`}>
+              <Text style={tw`text-base font-semibold text-[#3E3F29]`}>Subject: {item.subject}</Text>
+              <Text style={tw`text-sm text-[#7D8D86] mt-1`}>Time: {item.time}</Text>
+              <Text style={tw`text-sm mt-1 ${item.attended ? 'text-green-600' : 'text-red-600'}`}>
+                {item.attended ? '✅ Attended' : '❌ Not Attended'}
               </Text>
             </View>
           )}

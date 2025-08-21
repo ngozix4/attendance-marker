@@ -49,7 +49,7 @@ const timetableData = {
     '15:30-16:30': ['IT Strategic Management 731', 'Networks 731'],
   },
   Saturday: {
-    '00:00-22:30': ['Cyber Security 700'],
+    '00:00-23:30': ['Cyber Security 700'],
   },
   Sunday: {
     '00:00-22:30': ['Cyber Security 700'],
